@@ -22,6 +22,28 @@ Sua opção: """))
         except ValueError:
             print("Insira um valor numérico inteiro!")
 
+def postUsuario(usuarios):
+    printLinhas()
+    nome = input("Informe o nome completo: ").strip().capitalize()
+    email = input(f"Informe o email de {nome.split()[0]}: ").strip()
+    while True:
+        if any(i['email'] == email for i in usuarios):
+            print("Email já cadastrado!")
+            email = input("Informe o email a ser cadastrado: ").strip()
+        else:
+            break
+    print('Usuário cadastrado com sucesso!')
+    printLinhas()
+    return {"nome": nome, "email": email}
 
+
+def getAllUsuarios(usuarios):
+    printLinhas()
+    for i in usuarios:
+        print(i['nome'], end = ' -> ')
+        print(i['email'])
+    printLinhas()
+
+    
 if __name__ == "__main__":
     main()
