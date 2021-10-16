@@ -69,5 +69,29 @@ def getUsuarioByNome(usuarios):
         print(f"Usuário {nome} não encontrado em nosso cadastro!")
     printLinhas()
 
+def deleteUsuarioByEmail(usuarios):
+    printLinhas()
+    email = input("Informe o email do usuário a ser removido: ").strip()
+    if not any(i['email'] == email for i in usuarios):
+        print(f'{email} não é cadastrado!')
+    for i in usuarios:
+        if i['email'] == email:
+            print(f'{i["nome"]} foi excluído com sucesso!')
+            usuarios.remove(i)
+    printLinhas()
+    return usuarios
+
+
+def putUsuarioByEmail(usuarios):
+    printLinhas()
+    email = input("Informe o email do usuário a ser atualizado: ")
+    if not any(i['email'] == email for i in usuarios):
+        print(f'{email} não é cadastrado!')
+    else:
+        for i in usuarios:
+            if i['email'] == email:
+                i['nome'] = input("Digite o nome de usuário: ").strip().capitalize()
+        print("Nome atualizado com sucesso!")
+    return usuarios
 if __name__ == "__main__":
     main()
