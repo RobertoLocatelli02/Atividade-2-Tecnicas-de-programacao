@@ -45,5 +45,29 @@ def getAllUsuarios(usuarios):
     printLinhas()
 
     
+def getAllUsuariosByOrdemAlfabetica(usuarios):
+usuariosOrdemAlfabetica = sorted(usuarios, key = lambda i: i['nome'])
+printLinhas()
+for i in usuariosOrdemAlfabetica:
+    print(i['nome'], end = ' -> ')
+    print(i['email'])
+printLinhas()
+
+
+def getUsuarioByNome(usuarios):
+    usuariosEncontrados = []
+    printLinhas()
+    nome = input("Digite o nome a ser pesquisado: ").strip().capitalize()
+    for i in usuarios:
+        if i['nome'] == nome:
+            usuariosEncontrados.append(i)
+    if usuariosEncontrados.len() != 0:
+        for i in usuariosEncontrados:
+            print(i['nome'], end = ' -> ')
+            print(i['email'])
+    else:
+        print(f"Usuário {nome} não encontrado em nosso cadastro!")
+    printLinhas()
+
 if __name__ == "__main__":
     main()
