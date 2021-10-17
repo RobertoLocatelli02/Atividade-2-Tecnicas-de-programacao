@@ -22,6 +22,7 @@ Sua opção: """))
         except ValueError:
             print("Insira um valor numérico inteiro!")
 
+
 def postUsuario(usuarios):
     printLinhas()
     nome = input("Informe o nome completo: ").strip().capitalize()
@@ -44,14 +45,14 @@ def getAllUsuarios(usuarios):
         print(i['email'])
     printLinhas()
 
-    
+
 def getAllUsuariosByOrdemAlfabetica(usuarios):
-usuariosOrdemAlfabetica = sorted(usuarios, key = lambda i: i['nome'])
-printLinhas()
-for i in usuariosOrdemAlfabetica:
-    print(i['nome'], end = ' -> ')
-    print(i['email'])
-printLinhas()
+    usuariosOrdemAlfabetica = sorted(usuarios, key = lambda i: i['nome'])
+    printLinhas()
+    for i in usuariosOrdemAlfabetica:
+        print(i['nome'], end = ' -> ')
+        print(i['email'])
+    printLinhas()
 
 
 def getUsuarioByNome(usuarios):
@@ -69,6 +70,7 @@ def getUsuarioByNome(usuarios):
         print(f"Usuário {nome} não encontrado em nosso cadastro!")
     printLinhas()
 
+
 def deleteUsuarioByEmail(usuarios):
     printLinhas()
     email = input("Informe o email do usuário a ser removido: ").strip()
@@ -84,7 +86,7 @@ def deleteUsuarioByEmail(usuarios):
 
 def putUsuarioByEmail(usuarios):
     printLinhas()
-    email = input("Informe o email do usuário a ser atualizado: ")
+    email = input("Informe o email do usuário a ser atualizado: ").strip()
     if not any(i['email'] == email for i in usuarios):
         print(f'{email} não é cadastrado!')
     else:
@@ -93,6 +95,7 @@ def putUsuarioByEmail(usuarios):
                 i['nome'] = input("Digite o nome de usuário: ").strip().capitalize()
         print("Nome atualizado com sucesso!")
     return usuarios
+
 
 def verificaCondicoesOp():
     usuarios = []
@@ -116,8 +119,11 @@ def verificaCondicoesOp():
             printLinhas()
             break
 
+
 def main():
     verificaCondicoesOp()
+
+
 if __name__ == "__main__":
     main()
 
