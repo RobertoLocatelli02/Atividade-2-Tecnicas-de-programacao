@@ -93,5 +93,31 @@ def putUsuarioByEmail(usuarios):
                 i['nome'] = input("Digite o nome de usuário: ").strip().capitalize()
         print("Nome atualizado com sucesso!")
     return usuarios
+
+def verificaCondicoesOp():
+    usuarios = []
+    while True:
+        op = menu()
+        if op == 1:
+            usuario = postUsuario(usuarios)
+            usuarios.append(usuario)
+        elif op == 2:
+            getAllUsuarios(usuarios)
+        elif op == 3:
+            getAllUsuariosByOrdemAlfabetica(usuarios)
+        elif op == 4:
+            getUsuarioByNome(usuarios)
+        elif op == 5:
+            usuarios = deleteUsuarioByEmail(usuarios)
+        elif op == 6:
+            usuarios = putUsuarioByEmail(usuarios)
+        else:
+            print("Programa finalizado, até mais!")
+            printLinhas()
+            break
+
+def main():
+    verificaCondicoesOp()
 if __name__ == "__main__":
     main()
+
