@@ -20,6 +20,7 @@ Sua opção: """))
                 return op
             print("Insira um valor entre 1 e 7.")
         except ValueError:
+            printLinhas()
             print("Insira um valor numérico inteiro!")
 
 
@@ -62,7 +63,7 @@ def getUsuarioByNome(usuarios):
     for i in usuarios:
         if i['nome'] == nome:
             usuariosEncontrados.append(i)
-    if usuariosEncontrados.len() != 0:
+    if usuariosEncontrados.__len__() != 0:
         for i in usuariosEncontrados:
             print(i['nome'], end = ' -> ')
             print(i['email'])
